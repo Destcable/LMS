@@ -1,0 +1,10 @@
+{
+  "title": "Title",
+  "topic": "Тест 22",
+  "topLineColor": "#3b5572",
+  "bottomLineColor": "#43698f",
+  "isButton_InfoContent": true,
+  "buttonInfoContent_text": "Это новый Test",
+  "isButton_KeyWords": false,
+  "buttonKeyWords_text": ""
+}

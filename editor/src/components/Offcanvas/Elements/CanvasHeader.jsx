@@ -2,13 +2,12 @@ import CanvasElement from "../CanvasElement";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useForm } from "react-hook-form";
+import dataSaver from "../../../services/dataSaver";
 
 const CanvasHeader = ({ show, setShow }) => {
     const { register, handleSubmit } = useForm();
 
-    const onSubmit = (data) => { 
-        console.log(data);
-    };
+    const onSubmit = (data) => dataSaver(data);
 
     return (
         <CanvasElement
@@ -26,7 +25,7 @@ const CanvasHeader = ({ show, setShow }) => {
                     <Form.Control type="text" placeholder="Укажите название темы" defaultValue='' {...register('topic')} />
                 </Form.Group>
                 <Form.Group className="mb-3">
-                    <Form.Label>Верхний полоска</Form.Label>
+                    <Form.Label>Верхняя полоска</Form.Label>
                     <Form.Control className="w-100" type="color" defaultValue="#3b5571" {...register('topLineColor')} />
                 </Form.Group>
                 <Form.Group className="mb-3">
@@ -46,7 +45,7 @@ const CanvasHeader = ({ show, setShow }) => {
                     <Form.Check.Label>Кнопка «Ключевые слова»</Form.Check.Label>
                     <Form.Control.Feedback type="valid">
                         <Form.Label>Укажите информацию</Form.Label>
-                        <Form.Control as="textarea" rows={3} />
+                        <Form.Control as="textarea" rows={3} {...register('buttonKeyWords_text')} />
                     </Form.Control.Feedback>
                 </Form.Check>
                 <div className="d-flex w-100 justify-content-center mt-5">

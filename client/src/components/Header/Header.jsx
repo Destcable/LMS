@@ -1,11 +1,7 @@
+import dataHeader from '../../data/data.json';
 
 const Header = () => {
-
-    const styleHeader = {
-        height: "104px",
-        backgroundColor: "#3B5571"
-    }
-
+    
     const styleLogo = {
         zIndex: "3",
     }
@@ -18,7 +14,7 @@ const Header = () => {
     const styleHeaderSecond = {
         top: "54px",
         height: "54px",
-        backgroundColor: "#43698F",
+        backgroundColor: dataHeader.bottomLineColor,
     }
 
     const styleSubtitle = {
@@ -32,7 +28,7 @@ const Header = () => {
     }
 
     return (
-        <header className="d-flex flex-column align-items-center w-100" style={styleHeader}>
+        <header className="d-flex flex-column align-items-center w-100" style={{ backgroundColor: dataHeader.topLineColor }}>
             <div className="container d-flex flex-row">
                 <div className="position-absolute mt-4" style={styleLogo}>
                     Logo
@@ -40,21 +36,23 @@ const Header = () => {
                 <div className="d-flex flex-column w-100" style={ml90}>
                     <div className="d-flex flex-wrap w-100 justify-content-between">
                         <div className="pt-2">
-                            <h2 className="text-white">Title</h2>
+                            <h2 className="text-white">{dataHeader.title}</h2>
                         </div>
                         <div className="d-flex align-items-center mt-10">
-                            <a href="/" className="btn-contacts rounded-3 fw-bold text-white text-decoration-none" style={styleButton}> 
-                                Информация о контенте
-                            </a>
-                            <a href='/' className="btn-words rounded-3 fw-bold text-white text-decoration-none" style={styleButton}>
-                                Ключевые слова
-                            </a>
+                            {dataHeader.isButton_InfoContent &&
+                                <a href="/" className="btn-contacts rounded-3 fw-bold text-white text-decoration-none" style={styleButton}>
+                                    Информация о контенте
+                                </a>
+                            }
+                            {dataHeader.isButton_KeyWords &&
+                                <a href='/' className="btn-words rounded-3 fw-bold text-white text-decoration-none" style={styleButton}>
+                                    Ключевые слова
+                                </a>
+                            }
                         </div>
                     </div>
                     <div>
-                        <h3 className='position-absolute fw-bold' style={styleSubtitle}>
-                            Выбор оборудования, инструмента и технологической оснастки
-                        </h3>
+                        <h3 className='position-absolute fw-bold' style={styleSubtitle}>{dataHeader.topic}</h3>
                     </div>
                 </div>
             </div>
