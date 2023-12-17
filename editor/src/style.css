@@ -1,0 +1,32 @@
+.sidebar {
+    height: 100vh;
+    color: #fff;
+    padding-top: 20px;
+    background-color: #333;
+    /* Цвет боковой панели */
+    position: fixed;
+    /* Фиксированная позиция */
+    left: 0;
+    /* Прикрепить к левой части экрана */
+    top: 0;
+    /* Прикрепить к верхней части экрана */
+    width: 250px;
+    /* Ширина боковой панели */
+    overflow-y: auto;
+    /* Добавить вертикальную прокрутку при необходимости */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 8px;
+}
+
+.content {
+    padding-top: 20px;
+    margin-left: 20px;
+    /* Уменьшите отступ, чтобы сделать контент ближе к боковой панели */
+}
