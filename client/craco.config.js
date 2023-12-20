@@ -5,6 +5,8 @@ module.exports = {
     alias: {
       '@ui': path.resolve(__dirname, 'src/ui'),
       '@hooks': path.resolve(__dirname, 'src/hooks'),
+      '@services': path.resolve(__dirname, 'src/services'),
+      '@containers': path.resolve(__dirname, 'src/containers'),
     },
   },
 };

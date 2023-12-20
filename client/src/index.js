@@ -7,7 +7,7 @@ import {
 } from '@apollo/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from '@ui/Header/Header';
-import AuthForm from '@ui/AuthForm/AuthForm';
+import AuthFormContainer from '@containers/AuthFormContainer';
 
 const client = new ApolloClient({
   uri: 'http://localhost:5000/graphql',
@@ -18,7 +18,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ApolloProvider client={client}>
     <Header />
-    <AuthForm/>
+    <AuthFormContainer/>
   </ApolloProvider>
 );
 

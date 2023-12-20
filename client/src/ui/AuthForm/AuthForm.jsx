@@ -1,15 +1,14 @@
-
-const AuthForm = () => {
+const AuthForm = ({register, onSubmit}) => {
     return (
-        <form className='m-5'>
+        <form className='m-5' onSubmit={onSubmit}>
             <div className="form-group" id="formBasicEmail">
-                <label for="exampleInputEmail1">Введите E-mail</label>
-                <input type="email" class="form-control" placeholder="Введите email"/>
+                <label>Введите E-mail</label>
+                <input type="email" className="form-control" placeholder="Введите email" {...register('email')}/>
             </div>
 
             <div className="form-group">
-                <label for="exampleInputPassword1">Введите пароль</label>
-                <input type="password" class="form-control" placeholder="Введите пароль"/>
+                <label>Введите пароль</label>
+                <input type="password" className="form-control" placeholder="Введите пароль" {...register('password')}/>
                 <small className="form-text text-muted">Укажите пароль который был выслан на почту</small>
             </div>
             
