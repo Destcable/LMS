@@ -1,6 +1,14 @@
-import dataHeader from '../../data/data.json';
+import { useEffect, useState } from 'react';
+
 
 const Header = () => {
+    // const [configHeader, setConfigHeader] = useState({});
+
+    // useEffect(() => {
+    //     if (!loading) { 
+    //         setConfigHeader(data.getConfigHeader[0]);
+    //     }
+    // }, [data, loading])
     
     const styleLogo = {
         zIndex: "3",
@@ -14,7 +22,8 @@ const Header = () => {
     const styleHeaderSecond = {
         top: "54px",
         height: "54px",
-        backgroundColor: dataHeader.bottomLineColor,
+        backgroundColor: '#43698F',
+        // backgroundColor: configHeader.bottomLineColor,
     }
 
     const styleSubtitle = {
@@ -28,7 +37,7 @@ const Header = () => {
     }
 
     return (
-        <header className="d-flex flex-column align-items-center w-100" style={{ backgroundColor: dataHeader.topLineColor }}>
+        <header className="d-flex flex-column align-items-center w-100" style={{ backgroundColor: 'rgb(59, 85, 113)' }}>
             <div className="container d-flex flex-row">
                 <div className="position-absolute mt-4" style={styleLogo}>
                     Logo
@@ -36,27 +45,23 @@ const Header = () => {
                 <div className="d-flex flex-column w-100" style={ml90}>
                     <div className="d-flex flex-wrap w-100 justify-content-between">
                         <div className="pt-2">
-                            <h2 className="text-white">{dataHeader.title}</h2>
+                            <h2 className="text-white">Title</h2>
                         </div>
                         <div className="d-flex align-items-center mt-10">
-                            {dataHeader.isButton_InfoContent &&
                                 <a href="/" className="btn-contacts rounded-3 fw-bold text-white text-decoration-none" style={styleButton}>
                                     Информация о контенте
                                 </a>
-                            }
-                            {dataHeader.isButton_KeyWords &&
                                 <a href='/' className="btn-words rounded-3 fw-bold text-white text-decoration-none" style={styleButton}>
                                     Ключевые слова
                                 </a>
-                            }
                         </div>
                     </div>
                     <div>
-                        <h3 className='position-absolute fw-bold' style={styleSubtitle}>{dataHeader.topic}</h3>
+                        <h3 className='position-absolute fw-bold' style={styleSubtitle}>Топик</h3>
                     </div>
                 </div>
             </div>
-            <div className="position-absolute w-100" style={styleHeaderSecond}></div>
+            <div className="w-100" style={styleHeaderSecond}></div>
         </header>
     )
 }
