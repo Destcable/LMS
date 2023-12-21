@@ -1,19 +1,4 @@
-import { useEffect, useState } from 'react';
-
-
 const Header = () => {
-    // const [configHeader, setConfigHeader] = useState({});
-
-    // useEffect(() => {
-    //     if (!loading) { 
-    //         setConfigHeader(data.getConfigHeader[0]);
-    //     }
-    // }, [data, loading])
-    
-    const styleLogo = {
-        zIndex: "3",
-    }
-
     const styleButton = {
         fontSize: "14px",
         padding: "14px 32px 25px"
@@ -39,7 +24,7 @@ const Header = () => {
     return (
         <header className="d-flex flex-column align-items-center w-100" style={{ backgroundColor: 'rgb(59, 85, 113)' }}>
             <div className="container d-flex flex-row">
-                <div className="position-absolute mt-4" style={styleLogo}>
+                <div className="position-absolute mt-4" style={{ zIndex: 3}}>
                     Logo
                 </div>
                 <div className="d-flex flex-column w-100" style={ml90}>

@@ -1,5 +1,5 @@
-import AuthForm from '@ui/AuthForm/AuthForm';
 import { useForm } from 'react-hook-form';
+import AuthForm from '@ui/AuthForm/AuthForm';
 import AuthService from '@services/AuthService';
 
 const AuthFormContainer = () => { 
