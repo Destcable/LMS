@@ -1,30 +1,29 @@
-const { buildSchema } = require('graphql')
+const { 
+    GraphQLSchema,
+    GraphQLString,
+    GraphQLInt,
+    GraphQLID,
+    GraphQLList,
+    GraphQLNonNull,
+    GraphQLObjectType, 
+    graphql 
+} = require('graphql')
+const UserType = require('./types/UserType')
 
-const schema = buildSchema(`
-    type ConfigHeader { 
-        title: String
-        topLineColor: String
-        bottomLineColor: String
-        isButton_InfoContent: Boolean
-        isButton_KeyWords: Boolean
+const Query = new GraphQLObjectType({
+    name: 'Query',
+    fields: { 
+        getUsers: { 
+            type: new GraphQLList(UserType),
+            resolve: () => [
+                {id: 123, name: 'Artme'}
+            ],
+        }
     }
+})
 
-    input ConfigHeaderInput { 
-        title: String!
-        topLineColor: String!
-        bottomLineColor: String!
-        isButton_InfoContent: Boolean!
-        isButton_KeyWords: Boolean!
-    }
+const schema = new GraphQLSchema({ 
+    query: Query,
+});
 
-    type Query { 
-        getConfigHeader: [ConfigHeader]
-    }
-
-`);
-
-// type Query { 
-//     getAllEmployees: [Employee]
-//     getEmployee(id: ID): Employee
-// }
 module.exports = schema;
