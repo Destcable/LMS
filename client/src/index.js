@@ -19,8 +19,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ApolloProvider client={client}>
     <Header/>
-    <SelectTheme themes={['123', '456']}/>
-    {/* <AuthFormContainer/> */}
+    {/* <SelectTheme themes={['123', '456']}/> */}
+    <AuthFormContainer/>
   </ApolloProvider>
 );
 

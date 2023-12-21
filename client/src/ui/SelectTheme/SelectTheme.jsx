@@ -1,5 +1,4 @@
 import Button from "../Button/Button";
-
 const SelectTheme = ({themes}) => { 
     return( 
         <div className="d-grid m-5 gap-4">
