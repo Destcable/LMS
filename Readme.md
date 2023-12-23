@@ -1,5 +1,8 @@
 LMS 
 
+# Для запуска
+docker-compose up
+
 # Frontend
 React
 
