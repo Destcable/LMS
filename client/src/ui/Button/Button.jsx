@@ -1,7 +1,13 @@
-const Button = ({type, children}) => { 
+const Button = ({className,  children}) => {
+
     return( 
-        <button type={type} className="btn" style={{ backgroundColor: '#4f7094' }}>{children}</button>
+        <button 
+            className={`btn ${className || ''}`} 
+            style={{ backgroundColor: '#4f7094' }}
+        >
+            {children}
+        </button>
     )
 };
 
-export default Button;
+export default Button;  

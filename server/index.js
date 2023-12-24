@@ -2,14 +2,11 @@ const express = require('express')
 const {graphqlHTTP} = require('express-graphql')
 const cors = require('cors')
 const schema = require('./schema')
-const { Client } = require('pg');
+const pgClient = require('./pgClient')
 
-
-
-
-// client.query(
+// pgClient.query(
 //     'INSERT INTO topics (title, description) VALUES ($1, $2) RETURNING *',
-//     ['Test 1223', 'desc'], (err, result) => {
+//     ['13.01.10 Классификация электроизмерительных приборов', 'desc'], (err, result) => {
 //         if (err) { 
 //             console.log('error')
 //         } else { 
