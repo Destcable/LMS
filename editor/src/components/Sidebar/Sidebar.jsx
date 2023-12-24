@@ -28,13 +28,6 @@ const Sidebar = () => {
                         title='Настройка тем'
                         onClick={() => setShowTopics(true)}
                     />
-                    <ul className="list-unstyled">
-                        <li>About</li>
-                        <li>Contact</li>
-                        <li>Contact</li>
-                        <li>Contact</li>
-                        <li>Contact</li>
-                    </ul>
                 </Col>
                 <Col md={9} className="content">
                     <h4>Добро пожаловать в настройку вашей LMS(Learning Management System)</h4>

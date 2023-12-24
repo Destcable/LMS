@@ -14,8 +14,8 @@ const CanvasTopics = ({ show, setShow }) => {
 
     const handleClickTopic = (event) => { 
         const elementID = event.target.id;
-        const selectedElement = data.find(element => element.id == elementID);
-        
+        const selectedElement = data.find(element => element.id === elementID);
+
         if (selectedElement) {
             setShowModalTopic(true); 
             setEdit(true);

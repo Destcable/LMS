@@ -2,7 +2,6 @@ import ModalELement from "../ModalElement";
 import Form from 'react-bootstrap/Form';
 
 const ModalTopic = ({ isEdit, dataTopic, show, setShow }) => {
-    console.log(isEdit);
     return (
         <ModalELement
             show={show}
