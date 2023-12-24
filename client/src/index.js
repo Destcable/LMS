@@ -6,9 +6,9 @@ import {
   InMemoryCache
 } from '@apollo/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from '@ui/Header/Header';
-import AuthFormContainer from '@containers/AuthFormContainer';
-import SelectTheme from '@ui/SelectTheme/SelectTheme';
+import Header from './ui/Header/Header';
+import AuthFormContainer from './containers/AuthFormContainer';
+import SelectTheme from './ui/SelectTheme/SelectTheme';
 
 const client = new ApolloClient({
   uri: 'http://localhost:5000/graphql',
@@ -19,8 +19,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ApolloProvider client={client}>
     <Header/>
-    {/* <SelectTheme themes={['123', '456']}/> */}
-    <AuthFormContainer/>
+    <SelectTheme themes={['123', '456']}/>
+    {/* <AuthFormContainer/> */}
   </ApolloProvider>
 );
 

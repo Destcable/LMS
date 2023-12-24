@@ -9,7 +9,7 @@ const TopicType = new GraphQLObjectType({
     name: 'Topic',
     fields: () => ({ 
         id: {type: GraphQLID},
-        name: {type: GraphQLString}
+        title: {type: GraphQLString}
     })
 });
 

@@ -1,6 +1,6 @@
 LMS 
 
-# Для запуска
+# Для запуска PostgreSQL
 docker-compose up
 
 # Frontend

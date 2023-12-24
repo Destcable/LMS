@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
-import AuthForm from '@ui/AuthForm/AuthForm';
-import AuthService from '@services/AuthService';
+import AuthForm from '../ui/AuthForm/AuthForm';
+import AuthService from '../services/AuthService';
 
 const AuthFormContainer = () => { 
     const {register, handleSubmit} = useForm();
@@ -11,7 +11,7 @@ const AuthFormContainer = () => {
 
     return( 
         <AuthForm 
-            onSubmit={handleSubmit(onSubmit)}
+            onSubmit={handleSubmit(onSubmit)} 
             register={register}
         />
     );
