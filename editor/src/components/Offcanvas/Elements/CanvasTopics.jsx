@@ -9,8 +9,7 @@ import { useState } from "react";
 const CanvasTopics = ({ show, setShow }) => {
     const { data } = useQueryTopics();
     const [showModalTopic, setShowModalTopic] = useState(false);
-    const [isEdit, setEdit] = useState(false);
-    const [dataTopic, setDataTopic] = useState();
+    const [editData, setEditData] = useState({ isEdit: false, dataTopic: null });
 
     const handleClickTopic = (event) => { 
         const elementID = event.target.id;
@@ -18,8 +17,7 @@ const CanvasTopics = ({ show, setShow }) => {
 
         if (selectedElement) {
             setShowModalTopic(true); 
-            setEdit(true);
-            setDataTopic(selectedElement);
+            setEditData({ isEdit: true, dataTopic: selectedElement })
         }
     }
 
@@ -37,7 +35,7 @@ const CanvasTopics = ({ show, setShow }) => {
                             variant="primary" 
                             onClick={() => { 
                                 setShowModalTopic(true); 
-                                setEdit(false)
+                                setEditData({ isEdit: false, dataTopic: null })
                             }}
                         >
                             Добавить
@@ -62,8 +60,8 @@ const CanvasTopics = ({ show, setShow }) => {
                 </Form>
             </CanvasElement>
             <ModalTopic 
-                isEdit={isEdit}
-                dataTopic={dataTopic}  
+                isEdit={editData.isEdit}
+                dataTopic={editData.dataTopic}  
                 show={showModalTopic} 
                 setShow={setShowModalTopic}
             />
