@@ -1,10 +1,13 @@
-import { useLazyQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { GET_TOPICS } from "./gql/queryTopics"
 
 const useQueryTopics = () => { 
-    const {data, loading} = useLazyQuery(GET_TOPICS);
+    const {data, loading} = useQuery(GET_TOPICS);
 
-    return {data, loading};
+    return {
+        data: data ? data.getTopics : null, 
+        loading
+    };
 };
 
 export default useQueryTopics;

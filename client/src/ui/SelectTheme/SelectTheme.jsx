@@ -2,7 +2,7 @@ import Button from "../Button/Button";
 const SelectTheme = ({themes}) => { 
     return( 
         <div className="d-grid m-5 gap-4">
-            {themes.map((item, index) => <Button key={index} type={'success'}>{item}</Button> )}
+            {themes.map((item, index) => <Button key={index} type={'success'}>{item.title}</Button> )}
         </div>
     )
 };
