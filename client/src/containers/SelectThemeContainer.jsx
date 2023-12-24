@@ -4,6 +4,7 @@ import Loading from "../ui/Loading/Loading";
 
 const SelectThemeContainer = () => { 
     const {data, loading} = useQueryTopics();
+    
     if (loading) { 
         return <Loading />
     }
