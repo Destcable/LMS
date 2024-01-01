@@ -1,10 +1,14 @@
 import { useMutation } from "@apollo/client";
-import { CREATE_TOPIC } from "./gql/mutationTopic"
+import { CREATE_TOPIC } from "./gql/mutationTopic";
 
-function useMutationTopics() {  
-    const {data, loading} = useMutation(CREATE_TOPIC, {
+const useMutationTopic = { 
+    create: useMutationCreateTopic
+}
+
+function useMutationCreateTopic() {  
+    const {data, loading} = useMutation(CREATE_TOPIC, { 
         variables: { 
-            name: "ЦОК 125"
+            name: 'Цок 125'
         }
     });
 
@@ -14,4 +18,4 @@ function useMutationTopics() {
     };
 };
 
-export default useMutationTopics;
+export default useMutationTopic;

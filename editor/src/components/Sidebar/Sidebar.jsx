@@ -17,7 +17,15 @@ const Sidebar = () => {
     const [showModalTopic, setShowModalTopic] = useState(false);
     const [editData, setEditData] = useState({iseEdit: false, dataTopic: null});
     const [showHeader, setShowHeader] = useState(false);
+    const test = () => { 
+        const test2 = () => { 
+            return 123;
+        }
 
+        return test2;
+    };
+
+    console.log(test()());
     const handleClickTopic = (event) => { 
         const elementID = event.target.id;
         const selectedTopic = data.find(element => element.id == elementID);
