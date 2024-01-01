@@ -1,11 +1,11 @@
 import { useQuery } from "@apollo/client";
 import { GET_TOPICS } from "./gql/queryTopics"
 
-const useQueryTopics = () => { 
+function useQueryTopics() {  
     const {data, loading} = useQuery(GET_TOPICS);
 
     return {
-        data: data ? data.getTopics : null, 
+        data: data ? data.topics : null, 
         loading
     };
 };

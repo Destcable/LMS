@@ -13,7 +13,7 @@ const ModalTopic = ({ isEdit, dataTopic, show, setShow }) => {
                 <Form.Control 
                     type="text" 
                     placeholder="Укажите название" 
-                    value={isEdit ? dataTopic.title : ''} 
+                    value={isEdit ? dataTopic.name : ''} 
                     readOnly
                 />
             </Form>

@@ -1,27 +1,29 @@
-const express = require('express')
-const {graphqlHTTP} = require('express-graphql')
-const cors = require('cors')
-const schema = require('./schema')
-const pgClient = require('./pgClient')
+const { ApolloServer } = require('apollo-server');
+const { PrismaClient } = require('@prisma/client');
+const fs = require('fs');
+const path = require('path');
+const Query = require('./src/resolvers/Query');
+const Mutation = require('./src/resolvers/Mutation');
 
-// pgClient.query(
-//     'INSERT INTO topics (title, description) VALUES ($1, $2) RETURNING *',
-//     ['13.01.10 Классификация электроизмерительных приборов', 'desc'], (err, result) => {
-//         if (err) { 
-//             console.log('error')
-//         } else { 
-//             console.log('insert data: ' + result.rows)
-//         }
-//     }
-// )
+const resolvers = { 
+    Query,
+    Mutation
+};
 
-const app = express();
 
-app.use(cors());
+const prisma = new PrismaClient();
 
-app.use('/graphql', graphqlHTTP({
-    graphiql: true,
-    schema: schema,
-}));
+const server = new ApolloServer({
+    typeDefs: fs.readFileSync(
+        path.join(__dirname, 'schema.graphql'),
+        'utf-8'
+    ),
+    resolvers,
+    context: { 
+        prisma,
+    }
+})
 
-app.listen(5000, () => console.log('server start port: 5000'));
+server
+    .listen()
+    .then(({ url }) => console.log(`❄️  Server ready at: ${url}`))
