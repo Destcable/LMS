@@ -1,7 +1,6 @@
 import { useState } from "react";
 import SideCard from "./SideCard";
 import { FaHatWizard } from 'react-icons/fa6';
-import { MdTopic } from "react-icons/md";
 import {
     Col,
     Container,
