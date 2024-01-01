@@ -15,24 +15,16 @@ import ModalTopic from "../modals/Elements/ModalTopic";
 const Sidebar = () => {
     const { data } = useQueryTopics();
     const [showModalTopic, setShowModalTopic] = useState(false);
-    const [editData, setEditData] = useState({iseEdit: false, dataTopic: null});
+    const [editData, setEditData] = useState({ iseEdit: false, dataTopic: null });
     const [showHeader, setShowHeader] = useState(false);
-    const test = () => { 
-        const test2 = () => { 
-            return 123;
-        }
 
-        return test2;
-    };
-
-    console.log(test()());
-    const handleClickTopic = (event) => { 
+    const handleClickTopic = (event) => {
         const elementID = event.target.id;
         const selectedTopic = data.find(element => element.id == elementID);
 
-        if (selectedTopic) { 
+        if (selectedTopic) {
             setShowModalTopic(true);
-            setEditData({iseEdit: true, dataTopic: selectedTopic});
+            setEditData({ iseEdit: true, dataTopic: selectedTopic });
         }
     }
 
@@ -55,27 +47,31 @@ const Sidebar = () => {
                     <Form.Group className="mb-3 d-flex justify-content-between align-items-center">
                         <Form.Label>Добавить тему</Form.Label>
                         <Button
-                            variant="primary" 
-                            onClick={() => { 
+                            variant="primary"
+                            onClick={() => {
                                 setShowModalTopic(true);
-                                setEditData({isEdit: false, dataTopic: null})
+                                setEditData({ isEdit: false, dataTopic: null })
                             }}
                         >
                             Добавить
                         </Button>
                     </Form.Group>
                     <h4>Темы:</h4>
-                    {data &&
-                        data.map((topic, idx) => 
-                            <button 
-                                key={idx} 
-                                id={topic.id} 
-                                className="btn border-bottom"
-                                onClick={handleClickTopic}
-                            >
-                            {topic.name}
-                            </button>)
-                    }
+                    
+                    <div className="d-grid">
+                        {data &&
+                            data.map((topic, idx) =>
+                                <button
+                                    key={idx}
+                                    id={topic.id}
+                                    className="btn border-bottom"
+                                    onClick={handleClickTopic}
+                                >
+                                    {topic.name}
+                                </button>)
+                        }
+                    </div>
+
                 </Col>
             </Row>
             <CanvasHeader show={showHeader} setShow={setShowHeader} />
