@@ -2,10 +2,16 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { useEffect, useState } from 'react';
 
-const ModalELement = ({title, show, setShow, onClickSuccess, children}) => {
+const ModalELement = ({
+    title,
+    show,
+    setShow,
+    removeButton,
+    onClickSuccess,
+    children }) => {
     const [showElement, setShowElement] = useState(show);
 
-    useEffect(() => { 
+    useEffect(() => {
         setShowElement(show)
     }, [show])
 
@@ -19,9 +25,11 @@ const ModalELement = ({title, show, setShow, onClickSuccess, children}) => {
                 {children}
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="outline-danger">
-                    Удалить
-                </Button>
+                {removeButton &&
+                    <Button variant="outline-danger">
+                        Удалить
+                    </Button>
+                }
                 <Button variant="success" onClick={onClickSuccess}>
                     Создать
                 </Button>

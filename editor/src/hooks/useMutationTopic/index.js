@@ -10,7 +10,7 @@ function useMutationTopic() {
         })
     };
 
-    return { createTopic };  
+    return { createTopic };
 };
 
 export default useMutationTopic;

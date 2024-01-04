@@ -5,10 +5,7 @@ import Form from 'react-bootstrap/Form';
 const ModalTopic = ({ isEdit, dataTopic, show, setShow }) => {
     const { createTopic } = useMutationTopic();
 
-    const handleSubmitModal = () => {
-        setShow(false);
-        createTopic('Цок 130')
-    };
+    const handleSubmitModal = () => setShow(false) || createTopic('Цок 132')
 
     return (
         <ModalELement
@@ -20,7 +17,7 @@ const ModalTopic = ({ isEdit, dataTopic, show, setShow }) => {
             <Form>
                 <Form.Label>Название темы</Form.Label>
                 <Form.Control 
-                    type="text" 
+                    type="text"
                     placeholder="Укажите название" 
                     defaultValue={isEdit ? dataTopic.name : ''} 
                 />
