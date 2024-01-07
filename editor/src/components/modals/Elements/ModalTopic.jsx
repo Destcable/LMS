@@ -20,16 +20,22 @@ const ModalTopic = ({ isEdit, dataTopic, show, setShow }) => {
         >
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Label>Название темы</Form.Label>
-                <Form.Control 
+                <Form.Control
                     type="text"
-                    placeholder="Укажите название" 
+                    placeholder="Укажите название"
                     defaultValue={isEdit ? dataTopic.name : ''}
                     {...register('name')}
                 />
                 <Modal.Footer>
-                    <Button variant="success" type="submit">
-                        Создать
-                    </Button>
+                    {isEdit &&
+                        <>
+                            <Button variant="outline-danger">Удалить</Button>
+                            <Button variant="success" type="submit">Сохранить</Button>
+                        </>
+                    }
+                    {!isEdit &&
+                        <Button variant="success" type="submit">Создать</Button>
+                    }
                 </Modal.Footer>
             </Form>
         </ModalELement>
