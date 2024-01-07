@@ -1,7 +1,6 @@
 import { useState } from "react";
 import SideCard from "./SideCard";
 import { FaHatWizard, FaTrash } from 'react-icons/fa';
-import { BiSolidPencil } from "react-icons/bi";
 import {
     Col,
     Container,
@@ -12,12 +11,15 @@ import Button from 'react-bootstrap/Button';
 import CanvasHeader from "../Offcanvas/Elements/CanvasHeader";
 import useQueryTopics from "../../hooks/useQueryTopics";
 import ModalTopic from "../modals/Elements/ModalTopic";
+import useMutationTopic from "../../hooks/useMutationTopic";
+import TopicList from "../TopicList/TopicList";
 
 const Sidebar = () => {
     const { data } = useQueryTopics();
     const [showModalTopic, setShowModalTopic] = useState(false);
     const [editData, setEditData] = useState({ iseEdit: false, dataTopic: null });
     const [showHeader, setShowHeader] = useState(false);
+    const { deleteTopic } = useMutationTopic();
 
     const handleClickTopic = (event) => {
         const elementID = event.target.id;
@@ -57,20 +59,7 @@ const Sidebar = () => {
                     <h4>Темы:</h4>
                     
                     <div className="d-grid">
-                        {data?.map((topic, idx) =>
-                                <button
-                                    key={idx}
-                                    id={topic.id}
-                                    className="btn border-bottom d-flex justify-content-between align-items-center"
-                                    onClick={handleClickTopic}
-                                >
-                                    <span>{topic.name}</span>
-                                    <div className="d-flex gap-3">
-                                        <BiSolidPencil size="18px" />
-                                        <FaTrash size="18px" />
-                                    </div>
-                                </button>)
-                        }
+                        <TopicList topics={data}/>
                     </div>
 
                 </Col>
