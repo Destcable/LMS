@@ -1,5 +1,4 @@
 import { useState } from "react";
-import SideCard from "./SideCard";
 import { FaHatWizard } from 'react-icons/fa';
 import {
     Col,
@@ -13,6 +12,7 @@ import useQueryTopics from "../../hooks/useQueryTopics";
 import ModalTopic from "../modals/Elements/ModalTopic";
 import useMutationTopic from "../../hooks/useMutationTopic";
 import TopicList from "../TopicList/TopicList";
+import SideCard from "../../ui/Sidebar/SideCard";
 
 const Sidebar = () => {
     const { data } = useQueryTopics();
