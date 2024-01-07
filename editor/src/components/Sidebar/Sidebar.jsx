@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SideCard from "./SideCard";
-import { FaHatWizard } from 'react-icons/fa6';
+import { FaHatWizard, FaTrash } from 'react-icons/fa';
+import { BiSolidPencil } from "react-icons/bi";
 import {
     Col,
     Container,
@@ -59,15 +60,18 @@ const Sidebar = () => {
                     <h4>Темы:</h4>
                     
                     <div className="d-grid">
-                        {data &&
-                            data.map((topic, idx) =>
+                        {data?.map((topic, idx) =>
                                 <button
                                     key={idx}
                                     id={topic.id}
-                                    className="btn border-bottom"
+                                    className="btn border-bottom d-flex justify-content-between align-items-center"
                                     onClick={handleClickTopic}
                                 >
-                                    {topic.name}
+                                    <span>{topic.name}</span>
+                                    <div className="d-flex gap-3">
+                                        <BiSolidPencil size="18px" />
+                                        <FaTrash size="18px" />
+                                    </div>
                                 </button>)
                         }
                     </div>
