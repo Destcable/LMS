@@ -7,7 +7,7 @@ import {
 } from '@apollo/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css'
-import Sidebar from './components/Sidebar/Sidebar';
+import Layout from './components/Layout/Layout';
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000',
@@ -17,6 +17,6 @@ const client = new ApolloClient({
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ApolloProvider client={client}>
-    <Sidebar />
+    <Layout />
   </ApolloProvider>
 );
