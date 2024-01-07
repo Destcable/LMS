@@ -16,4 +16,4 @@ async function deleteTopic(root, args, context) {
     })
 }
 
-module.exports = { createTopic }
+module.exports = { createTopic, deleteTopic }

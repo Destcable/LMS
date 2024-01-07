@@ -49,10 +49,7 @@ const Sidebar = () => {
                         <Form.Label>Добавить тему</Form.Label>
                         <Button
                             variant="primary"
-                            onClick={() => {
-                                setShowModalTopic(true);
-                                setEditData({ isEdit: false, dataTopic: null })
-                            }}
+                            onClick={() => setShowModalTopic(true) || setEditData({ isEdit: false, dataTopic: null })}
                         >
                             Добавить
                         </Button>
