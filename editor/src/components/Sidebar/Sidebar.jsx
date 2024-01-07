@@ -1,6 +1,6 @@
 import { useState } from "react";
 import SideCard from "./SideCard";
-import { FaHatWizard, FaTrash } from 'react-icons/fa';
+import { FaHatWizard } from 'react-icons/fa';
 import {
     Col,
     Container,
