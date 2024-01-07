@@ -1,26 +1,36 @@
+import { useForm } from "react-hook-form";
 import useMutationTopic from "../../../hooks/useMutationTopic";
 import ModalELement from "../ModalElement";
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 const ModalTopic = ({ isEdit, dataTopic, show, setShow }) => {
+    const { register, handleSubmit } = useForm();
+
     const { createTopic } = useMutationTopic();
 
-    const handleSubmitModal = () => setShow(false) || createTopic('Цок 132')
+    const onSubmit = data => setShow(false) || createTopic(data.name);
 
     return (
         <ModalELement
             show={show}
             setShow={setShow}
             title='Настройка темы'
-            onClickSuccess={handleSubmitModal}
         >
-            <Form>
+            <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Label>Название темы</Form.Label>
                 <Form.Control 
                     type="text"
                     placeholder="Укажите название" 
-                    defaultValue={isEdit ? dataTopic.name : ''} 
+                    defaultValue={isEdit ? dataTopic.name : ''}
+                    {...register('name')}
                 />
+                <Modal.Footer>
+                    <Button variant="success" type="submit">
+                        Создать
+                    </Button>
+                </Modal.Footer>
             </Form>
         </ModalELement>
     )

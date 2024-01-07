@@ -1,13 +1,10 @@
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
 import { useEffect, useState } from 'react';
 
 const ModalELement = ({
     title,
     show,
     setShow,
-    removeButton,
-    onClickSuccess,
     children }) => {
     const [showElement, setShowElement] = useState(show);
 
@@ -24,16 +21,16 @@ const ModalELement = ({
             <Modal.Body>
                 {children}
             </Modal.Body>
-            <Modal.Footer>
+            {/* <Modal.Footer>
                 {removeButton &&
                     <Button variant="outline-danger">
                         Удалить
                     </Button>
                 }
-                <Button variant="success" onClick={onClickSuccess}>
+                <Button variant="success" type="submit" onClick={onClickSuccess}>
                     Создать
                 </Button>
-            </Modal.Footer>
+            </Modal.Footer> */}
         </Modal>
     )
 };
