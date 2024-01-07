@@ -33,7 +33,7 @@ const Layout = () => {
     return (
         <Container>
             <Row>
-                <Sidebar />
+                {/* <Sidebar /> */}
                 <Col md={9} className="content">
                     <h4>Добро пожаловать в настройку вашей LMS(Learning Management System)</h4>
                     <p>Для настройки, вашей LMS выберите неободимый элемент в панели!</p>
