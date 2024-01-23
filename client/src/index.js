@@ -7,11 +7,11 @@ import {
 } from '@apollo/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './ui/Header/Header';
-// import AuthFormContainer from './containers/AuthFormContainer';
+import AuthFormContainer from './containers/AuthFormContainer';
 import SelectThemeContainer from './containers/SelectThemeContainer';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:5000/graphql',
+  uri: 'http://localhost:4000/graphql',
   cache: new InMemoryCache()
 });
 
