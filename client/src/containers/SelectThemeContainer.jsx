@@ -7,6 +7,7 @@ import MainThemeUI from "../ui/MainTheme/MainThemeUI";
 const SelectThemeContainer = () => { 
     const {data, loading} = useQueryTopics();
     const [selectableTheme, setSelectableTheme] = useState(null);
+    
     if (loading) { 
         return <Loading />
     }
