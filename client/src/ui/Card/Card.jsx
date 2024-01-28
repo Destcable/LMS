@@ -20,7 +20,7 @@ const CardUI = () => {
 
     return (
         <div className="d-flex flex-column" style={styleCard}>
-            <ProgressBarContainer lineName='line' />
+            <ProgressBarContainer name='bar' />
             <div className="flex-column" style={styleBlock}>
                 <div className="w-100 shape-color_1 mb-4" style={styleShape}>
                     <p className="card-text_main">title</p>
