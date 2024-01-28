@@ -1,9 +1,18 @@
 import Button from "../Button/Button";
 
-const SelectTheme = ({themes}) => { 
+const SelectTheme = ({themes, onClick}) => { 
     return( 
         <div className="d-grid m-5 gap-4">
-            {themes.map((item, key) => <Button key={key} className='text-white'>{item.name}</Button> )}
+            {themes.map((item, key) => 
+                <Button 
+                    key={key}
+                    id={item.id}
+                    className='text-white'
+                    onClick={onClick}
+                >
+                    {item.name}
+                </Button> 
+            )}
         </div>
     )
 };
