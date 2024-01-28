@@ -1,12 +1,16 @@
 import { useForm } from 'react-hook-form';
 import AuthForm from '../ui/AuthForm/AuthForm';
-import AuthService from '../services/AuthService';
+import authService from '../services/authService';
 
-const AuthFormContainer = () => { 
+const AuthFormContainer = ({onSuccess}) => { 
     const {register, handleSubmit} = useForm();
 
     const onSubmit = (data) => { 
-        console.log(AuthService.login(data.email, data.password));
+        if (authService.login(data.email, data.password)) { 
+            localStorage.setItem('auth-login', data.email);
+            localStorage.setItem('auth-password', data.password);
+            onSuccess();
+        }
     };
 
     return( 
