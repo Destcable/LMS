@@ -28,14 +28,12 @@ const CardUI = () => {
                 <p className="text-center">desc</p>
                 <div className="d-flex w-100 justify-content-center button_train ">
                     <a href="#" className="text-decoration-none">
-                        <div
-                            className="d-flex btn btn_info align-items-center"
-                            >
+                        <div className="d-flex btn btn_info align-items-center p-3">
                             Справка
                         </div>
                     </a>
                     <a href="#" className="text-decoration-none">
-                        <div className="d-flex btn btn_exe align-center">
+                        <div className="d-flex btn btn_exe p-3 align-center">
                             Задание
                         </div>
                     </a>

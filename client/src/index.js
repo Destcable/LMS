@@ -8,8 +8,6 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/main.css';
 import Header from './ui/Header/Header';
-import AuthFormContainer from './containers/AuthFormContainer';
-import SelectThemeContainer from './containers/SelectThemeContainer';
 import App from './app';
 
 const client = new ApolloClient({
