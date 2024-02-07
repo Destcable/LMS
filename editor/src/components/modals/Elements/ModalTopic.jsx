@@ -11,7 +11,6 @@ const ModalTopic = ({ isEdit, dataTopic, show, setShow }) => {
     const { createTopic } = useMutationTopic();
 
     const onSubmit = data => setShow(false) || createTopic(data.name);
-
     return (
         <ModalELement
             show={show}

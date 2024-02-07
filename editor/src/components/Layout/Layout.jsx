@@ -18,23 +18,23 @@ const Layout = () => {
     const [showModalTopic, setShowModalTopic] = useState(false);
     const [editData, setEditData] = useState({ iseEdit: false, dataTopic: null });
     const [showHeader, setShowHeader] = useState(false);
-    const [showTopicID, setShowTopicID] = useState(null);
+    const [showTopic, setShowTopic] = useState(null);
     const { deleteTopic } = useMutationTopic();
 
-    const handleClickTopic = (event) => {
-        const elementID = event.target.id;
-        const selectedTopic = data.find(element => element.id == elementID);
+    const handleClickTopic = (topic) => {
+        // const selectedTopic = data.find(element => element.id == elementID);
 
-        if (selectedTopic) {
+        if (topic) {
             setShowModalTopic(true);
-            setEditData({ iseEdit: true, dataTopic: selectedTopic });
+            setEditData({ iseEdit: true, dataTopic: topic });
         }
     }
+
 
     return (
         <Container>
             <Row>
-                {showTopicID &&
+                {showTopic &&
                     <Sidebar />
                 }
                 <Col md={9} className="content">
@@ -54,7 +54,11 @@ const Layout = () => {
                     <h4>Темы:</h4>
                     
                     <div className="d-grid">
-                        <TopicList topics={data} onClick={(item) => setShowTopicID(item.target.id)}/>
+                        <TopicList 
+                            topics={data} 
+                            onTopicSelected={(item) => setShowTopic(item)}
+                            onTopicDeleted={(item) => handleClickTopic(item)}
+                        />
                     </div>
 
                 </Col>
