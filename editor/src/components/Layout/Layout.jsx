@@ -6,7 +6,6 @@ import {
 } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import CanvasHeader from "../Offcanvas/Elements/CanvasHeader";
 import useQueryTopics from "../../hooks/useQueryTopics";
 import ModalTopic from "../modals/Elements/ModalTopic";
 import useMutationTopic from "../../hooks/useMutationTopic";
@@ -16,8 +15,8 @@ import Sidebar from "../Sidebar/Sidebar";
 const Layout = () => {
     const { data } = useQueryTopics();
     const [showModalTopic, setShowModalTopic] = useState(false);
+    
     const [editData, setEditData] = useState({ iseEdit: false, dataTopic: null });
-    const [showHeader, setShowHeader] = useState(false);
     const [showTopic, setShowTopic] = useState(null);
     const { deleteTopic } = useMutationTopic();
 
@@ -63,7 +62,6 @@ const Layout = () => {
 
                 </Col>
             </Row>
-            <CanvasHeader show={showHeader} setShow={setShowHeader} />
             <ModalTopic
                 show={showModalTopic}
                 setShow={setShowModalTopic}
