@@ -18,6 +18,7 @@ const Layout = () => {
     const [showModalTopic, setShowModalTopic] = useState(false);
     const [editData, setEditData] = useState({ iseEdit: false, dataTopic: null });
     const [showHeader, setShowHeader] = useState(false);
+    const [showTopicID, setShowTopicID] = useState(null);
     const { deleteTopic } = useMutationTopic();
 
     const handleClickTopic = (event) => {
@@ -33,7 +34,9 @@ const Layout = () => {
     return (
         <Container>
             <Row>
-                {/* <Sidebar /> */}
+                {showTopicID &&
+                    <Sidebar />
+                }
                 <Col md={9} className="content">
                     <h4>Добро пожаловать в настройку вашей LMS(Learning Management System)</h4>
                     <p>Для настройки, вашей LMS выберите неободимый элемент в панели!</p>
@@ -51,7 +54,7 @@ const Layout = () => {
                     <h4>Темы:</h4>
                     
                     <div className="d-grid">
-                        <TopicList topics={data}/>
+                        <TopicList topics={data} onClick={(item) => setShowTopicID(item.target.id)}/>
                     </div>
 
                 </Col>
