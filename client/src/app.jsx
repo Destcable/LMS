@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import AuthFormContainer from "./containers/AuthFormContainer"
 import SelectThemeContainer from "./containers/SelectThemeContainer";
 import getStorageAuth from "./services/getStorageAuth";
 import authService from "./services/authService";
 import MainThemeUI from "./ui/MainTheme/MainThemeUI";
 import { handleSelectTheme } from "./handlers/themeHandler";
-import useQueryTopicHeader from "./hooks/useQueryTopicHeader";
 import useQueryTopicThemes from "./hooks/useQueryTopicThemes";
 
 const App = () => { 
@@ -14,12 +13,10 @@ const App = () => {
 
     const themes = useQueryTopicThemes(selectableTheme?.id);
     
-    useEffect(() => {
-        console.log(themes);
-    }, [themes]);
-
-    if (selectableTheme) { 
-        return <MainThemeUI />
+    if (selectableTheme && themes?.data) { 
+        return <MainThemeUI 
+            themes={themes.data}
+        />
     }
 
     if (isAuth) { 
