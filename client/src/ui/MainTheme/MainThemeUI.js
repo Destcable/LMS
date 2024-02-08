@@ -9,7 +9,6 @@ const MainThemeUI = () => {
     return (
         <div className="d-flex justify-content-center flex-wrap" style={mainBlock}>
             <CardUI />
-
         </div>
     )
 };

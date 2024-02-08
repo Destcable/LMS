@@ -3,12 +3,18 @@ import AuthFormContainer from "./containers/AuthFormContainer"
 import SelectThemeContainer from "./containers/SelectThemeContainer";
 import getStorageAuth from "./services/getStorageAuth";
 import authService from "./services/authService";
+import MainThemeUI from "./ui/MainTheme/MainThemeUI";
 
 const App = () => { 
     const [isAuth, setAuth] = useState(false);
+    const [selectableTheme, setSelectableTheme] = useState(null);
+    
+    if (selectableTheme) { 
+        return <MainThemeUI />
+    }
 
     if (isAuth) { 
-        return <SelectThemeContainer />
+        return <SelectThemeContainer onThemeSelected={(data) => setSelectableTheme(data)} />
     }
 
     if (!isAuth) { 
