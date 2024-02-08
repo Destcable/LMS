@@ -19,17 +19,13 @@ const App = () => {
         />
     }
 
-    if (isAuth) { 
-        return <SelectThemeContainer 
-            onThemeSelected={(data) => handleSelectTheme(data, setSelectableTheme)} 
-        />
-    }
-
     if (!isAuth) { 
         const { login, password } = getStorageAuth();
     
         if (authService.login(login, password)) { 
-            setAuth(true);
+            return <SelectThemeContainer 
+                onThemeSelected={(data) => handleSelectTheme(data, setSelectableTheme)} 
+            />
         }
 
         return <AuthFormContainer onSuccess={() => setAuth(true)}/>
