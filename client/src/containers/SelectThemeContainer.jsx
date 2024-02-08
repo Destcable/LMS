@@ -13,7 +13,7 @@ const SelectThemeContainer = () => {
     }
     
     if (data && !selectableTheme) {
-        return <SelectTheme themes={data} onClick={data => setSelectableTheme(data.target.id)} />
+        return <SelectTheme themes={data} onClick={data => setSelectableTheme(data)} />
     }
 
     if ( selectableTheme ) { 

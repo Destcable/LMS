@@ -36,6 +36,6 @@ async function deleteTopic(root, args, context) {
             id
         }
     })
-}
+};
 
 module.exports = { createTopic, deleteTopic }

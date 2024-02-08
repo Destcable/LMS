@@ -8,7 +8,7 @@ const SelectTheme = ({themes, onClick}) => {
                     key={key}
                     id={item.id}
                     className='text-white'
-                    onClick={onClick}
+                    onClick={() => onClick(item)}
                 >
                     {item.name}
                 </Button> 

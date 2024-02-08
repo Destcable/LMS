@@ -1,5 +1,8 @@
+scalar JSON
+
 type Query { 
     topics: [Topic]!
+    topicHeader(topicId: Int!): TopicHeader!
 }
 
 type Mutation { 
@@ -16,6 +19,6 @@ type Topic {
 type TopicHeader { 
     id: Int
     topicId: Int
-    settings: String 
+    settings: JSON 
     topic: Topic
 }
