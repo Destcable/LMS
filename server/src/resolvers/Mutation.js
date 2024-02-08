@@ -38,4 +38,20 @@ async function deleteTopic(root, args, context) {
     })
 };
 
-module.exports = { createTopic, deleteTopic }
+async function createTopicTheme(_, args, context) { 
+    const { topicId, title, description } = args;
+
+    return await context.prisma.topicTheme.create({ 
+        data: { 
+            topicId,
+            title,
+            description
+        }
+    })
+}
+
+module.exports = { 
+    createTopic, 
+    deleteTopic,
+    createTopicTheme,
+}
