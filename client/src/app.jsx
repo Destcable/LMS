@@ -5,17 +5,14 @@ import getStorageAuth from "./services/getStorageAuth";
 import authService from "./services/authService";
 import MainThemeUI from "./ui/MainTheme/MainThemeUI";
 import { handleSelectTheme } from "./handlers/themeHandler";
-import useQueryTopicThemes from "./hooks/useQueryTopicThemes";
 
 const App = () => { 
     const [isAuth, setAuth] = useState(false);
-    const [selectableTheme, setSelectableTheme] = useState(null);
-
-    const themes = useQueryTopicThemes(selectableTheme?.id);
+    const [selectableTopic, setSelectableTopic] = useState(null);
     
-    if (selectableTheme && themes?.data) { 
+    if (selectableTopic) { 
         return <MainThemeUI 
-            themes={themes.data}
+            selectableTopic={selectableTopic}
         />
     }
 
@@ -24,7 +21,7 @@ const App = () => {
     
         if (authService.login(login, password)) { 
             return <SelectThemeContainer 
-                onThemeSelected={(data) => handleSelectTheme(data, setSelectableTheme)} 
+                onThemeSelected={(data) => handleSelectTheme(data, setSelectableTopic)} 
             />
         }
 

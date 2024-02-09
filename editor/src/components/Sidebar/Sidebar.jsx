@@ -2,11 +2,12 @@ import { useState } from "react";
 import SideCard from "../../ui/Sidebar/SideCard";
 import SidebarUI from "../../ui/Sidebar/Sidebar";
 import { FaHatWizard } from 'react-icons/fa';
+import { MdTopic } from "react-icons/md";
 import CanvasHeader from "../Offcanvas/Elements/CanvasHeader";
 import Button from 'react-bootstrap/Button';
 import FlexBetween from "../../ui/Flex/FlexBetween";
 
-const Sidebar = () => {
+const Sidebar = ({topic}) => {
     const [showHeader, setShowHeader] = useState(false);
     
     return (
@@ -24,6 +25,11 @@ const Sidebar = () => {
                     <span>Подтемы: </span>
                     <Button size="sm">Добавить</Button>
                 </FlexBetween>
+
+                <SideCard
+                    icon={<MdTopic size={'70px'} />}
+                    title={'Title'}
+                />
 
             </SidebarUI>
             <CanvasHeader show={showHeader} setShow={setShowHeader} />
