@@ -45,7 +45,9 @@ const Sidebar = ({topic}) => {
 
             </SidebarUI>
             <CanvasHeader show={showHeader} setShow={setShowHeader} />
-            <CanvasTheme show={showTheme} setShow={setShowTheme} />
+            {showTheme &&
+                <CanvasTheme show={showTheme} setShow={setShowTheme} />
+            }
         </>
     )
 };

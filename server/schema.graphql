@@ -4,6 +4,7 @@ type Query {
     topics: [Topic]!
     topicHeader(topicId: Int!): TopicHeader!
     topicThemes(topicId: Int!): [TopicTheme]!
+    topicThemeById(id: Int!): TopicTheme!
 }
 
 type Mutation { 
