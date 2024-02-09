@@ -7,10 +7,12 @@ import CanvasHeader from "../Offcanvas/Elements/CanvasHeader";
 import Button from 'react-bootstrap/Button';
 import FlexBetween from "../../ui/Flex/FlexBetween";
 import CanvasTheme from "../Offcanvas/Elements/CanvasTheme";
+import useQueryTopicThemes from "../../hooks/useQueryTopicThemes";
 
 const Sidebar = ({topic}) => {
     const [showHeader, setShowHeader] = useState(false);
     const [showTheme, setShowTheme] = useState(false);
+    const themes = useQueryTopicThemes(topic.id);
 
     return (
         <>
@@ -33,11 +35,13 @@ const Sidebar = ({topic}) => {
                     </Button>
                 </FlexBetween>
 
-                <SideCard
-                    icon={<MdTopic size={'70px'} />}
-                    title={'Title'}
-                    onClick={() => setShowTheme(true)}
-                />
+                {themes?.data && themes.data.map((item, idx) => <SideCard
+                        key={idx}
+                        icon={<MdTopic size={'70px'} />}
+                        title={item.title}
+                        onClick={() => setShowTheme(true)}
+                    />
+                )}
 
             </SidebarUI>
             <CanvasHeader show={showHeader} setShow={setShowHeader} />

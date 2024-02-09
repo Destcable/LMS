@@ -17,12 +17,12 @@ const Layout = () => {
     const [showModalTopic, setShowModalTopic] = useState(false);
     
     const [editData, setEditData] = useState({ iseEdit: false, dataTopic: null });
-    const [showTopic, setShowTopic] = useState(null);
+    const [dataTopic, setDataTopic] = useState(null);
     const { deleteTopic } = useMutationTopic();
 
     const handleClickTopic = (topic) => {
         // const selectedTopic = data.find(element => element.id == elementID);
-
+        
         if (topic) {
             setShowModalTopic(true);
             setEditData({ iseEdit: true, dataTopic: topic });
@@ -33,8 +33,10 @@ const Layout = () => {
     return (
         <Container>
             <Row>
-                {showTopic &&
-                    <Sidebar />
+                {dataTopic &&
+                    <Sidebar 
+                        topic={dataTopic}
+                    />
                 }
                 <Col md={9} className="content">
                     <h4>Добро пожаловать в настройку вашей LMS(Learning Management System)</h4>
@@ -55,7 +57,7 @@ const Layout = () => {
                     <div className="d-grid">
                         <TopicList 
                             topics={data} 
-                            onTopicSelected={(item) => setShowTopic(item)}
+                            onTopicSelected={(item) => setDataTopic(item)}
                             onTopicDeleted={(item) => handleClickTopic(item)}
                         />
                     </div>
