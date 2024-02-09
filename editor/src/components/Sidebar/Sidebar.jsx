@@ -21,10 +21,10 @@ const Sidebar = () => {
                 <br />
                 
                 <FlexBetween>
-                    <span>Под темы: </span>
+                    <span>Подтемы: </span>
                     <Button size="sm">Добавить</Button>
                 </FlexBetween>
-                
+
             </SidebarUI>
             <CanvasHeader show={showHeader} setShow={setShowHeader} />
         </>
