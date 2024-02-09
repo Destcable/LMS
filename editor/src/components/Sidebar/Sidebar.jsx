@@ -6,10 +6,12 @@ import { MdTopic } from "react-icons/md";
 import CanvasHeader from "../Offcanvas/Elements/CanvasHeader";
 import Button from 'react-bootstrap/Button';
 import FlexBetween from "../../ui/Flex/FlexBetween";
+import CanvasTheme from "../Offcanvas/Elements/CanvasTheme";
 
 const Sidebar = ({topic}) => {
     const [showHeader, setShowHeader] = useState(false);
-    
+    const [showTheme, setShowTheme] = useState(false);
+
     return (
         <>
             <SidebarUI>
@@ -23,16 +25,23 @@ const Sidebar = ({topic}) => {
                 
                 <FlexBetween>
                     <span>Подтемы: </span>
-                    <Button size="sm">Добавить</Button>
+                    <Button 
+                        size="sm" 
+                        onClick={() => setShowTheme(true)}
+                    >
+                        Добавить
+                    </Button>
                 </FlexBetween>
 
                 <SideCard
                     icon={<MdTopic size={'70px'} />}
                     title={'Title'}
+                    onClick={() => setShowTheme(true)}
                 />
 
             </SidebarUI>
             <CanvasHeader show={showHeader} setShow={setShowHeader} />
+            <CanvasTheme show={showTheme} setShow={setShowTheme} />
         </>
     )
 };
