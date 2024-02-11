@@ -5,14 +5,14 @@ import getStorageAuth from "./services/getStorageAuth";
 import authService from "./services/authService";
 import MainThemeUI from "./ui/MainTheme/MainThemeUI";
 import { handleSelectTheme } from "./handlers/themeHandler";
-import Window from "./ui/Window/Window";
+import WindowContainer from "./containers/WindowContainer";
 
 const App = () => { 
     const [isAuth, setAuth] = useState(false);
     const [selectableTopic, setSelectableTopic] = useState(null);
     
     if (selectableTopic) { 
-        return <Window title={'Widnow'}/>
+        return <WindowContainer />
         // return <MainThemeUI 
         //     selectableTopic={selectableTopic}
         // />
