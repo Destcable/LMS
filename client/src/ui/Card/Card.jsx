@@ -1,4 +1,5 @@
 import ProgressBarContainer from "../../containers/ProgressBarContainer";
+import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 
 const CardUI = ({title, description, onClick}) => {
 
@@ -30,6 +31,7 @@ const CardUI = ({title, description, onClick}) => {
                     <a href="#" className="text-decoration-none w-100 ps-3 pe-3">
                         <div className="d-flex btn btn_exe p-3 align-center w-100" onClick={onClick}>
                             Задание
+                            <MdKeyboardDoubleArrowRight />
                         </div>
                     </a>
                 </div>
