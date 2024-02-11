@@ -1,8 +1,8 @@
 import useQueryTopicThemes from "../../hooks/useQueryTopicThemes";
 import CardUI from "../Card/Card";
 
-const MainThemeUI = ({selectableTopic}) => {
-    const { data } = useQueryTopicThemes(selectableTopic?.id);
+const MainThemeUI = ({dataTopic, selectableTheme }) => {
+    const { data } = useQueryTopicThemes(dataTopic?.id);
 
     const mainBlock = { 
         marginTop: "150px",
@@ -16,6 +16,7 @@ const MainThemeUI = ({selectableTopic}) => {
                     key={idx}
                     title={theme.title}
                     description={theme.description}
+                    onClick={() => selectableTheme(theme)}
                 />
             ))}
         </div>

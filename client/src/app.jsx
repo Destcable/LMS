@@ -10,13 +10,12 @@ import WindowContainer from "./containers/WindowContainer";
 const App = () => { 
     const [isAuth, setAuth] = useState(false);
     const [selectableTopic, setSelectableTopic] = useState(null);
-    
-    if (selectableTopic) { 
-        return <WindowContainer />
-        // return <MainThemeUI 
-        //     selectableTopic={selectableTopic}
-        // />
-    }
+    const [selectableTheme, setSelectableTheme] = useState(null);
+
+    if (selectableTopic) return <MainThemeUI 
+        dataTopic={selectableTopic}
+        selectableTheme={theme => console.log(theme)}
+    />
 
     if (!isAuth) { 
         const { login, password } = getStorageAuth();
