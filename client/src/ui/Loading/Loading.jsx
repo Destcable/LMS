@@ -1,8 +1,9 @@
 import ReactLoading from 'react-loading';
+import FlexCenter from '../Flex/FlexCenter';
 
 const Loading = ({ type = 'spin', color = '#2E97C3', title = 'Загрузка...', height = '90%', width = '90%' }) => {
     return (
-        <div className='w-100 d-flex justify-content-center'>
+        <FlexCenter>
             <div>
                 <ReactLoading
                     type={type}
@@ -12,8 +13,7 @@ const Loading = ({ type = 'spin', color = '#2E97C3', title = 'Загрузка..
                 />
                 <h6>{title}</h6>
             </div>
-        </div>
-
+        </FlexCenter>
     )
 };
 
