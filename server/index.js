@@ -10,14 +10,22 @@ const resolvers = {
     Mutation
 };
 
+const schemaFilePaths = [
+    path.join(__dirname, 'customTypes.graphql'),
+    path.join(__dirname, 'src/models/Topic/schema.graphql'),
+    path.join(__dirname, 'src/models/TopicHeader/schema.graphql'),
+    path.join(__dirname, 'src/models/TopicTheme/schema.graphql'),
+    path.join(__dirname, 'src/models/ThemeTask/schema.graphql'),
+];
+ 
+const readAndConcatenateSchemas = (filePaths) => { 
+    return filePaths.map(filePath => fs.readFileSync(filePath, 'utf-8')).join('\n');
+};
 
 const prisma = new PrismaClient();
 
 const server = new ApolloServer({
-    typeDefs: fs.readFileSync(
-        path.join(__dirname, 'schema.graphql'),
-        'utf-8'
-    ),
+    typeDefs: readAndConcatenateSchemas(schemaFilePaths),
     resolvers,
     context: { 
         prisma,

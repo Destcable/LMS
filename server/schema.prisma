@@ -28,3 +28,7 @@ model TopicTheme {
   description String
   topic Topic @relation(fields: [topicId], references: [id])
 }
+
+model ThemeTask { 
+  id Int @id @default(autoincrement())
+}
