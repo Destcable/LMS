@@ -1,5 +1,6 @@
 import ProgressBarContainer from "../../containers/ProgressBarContainer";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
+import FlexBetween from "../Flex/FlexBetween";
 
 const CardUI = ({title, description, onClick}) => {
 
@@ -29,9 +30,11 @@ const CardUI = ({title, description, onClick}) => {
                 <p className="text-center">{description}</p>
                 <div className="d-flex w-100 justify-content-center button_train ">
                     <a href="#" className="text-decoration-none w-100 ps-3 pe-3">
-                        <div className="d-flex justify-content-between btn btn_exe" onClick={onClick}>
-                            Задание
-                            <MdKeyboardDoubleArrowRight size='22px'/>
+                        <div className="btn btn_exe w-100" onClick={onClick}>
+                            <FlexBetween>
+                                Задание
+                                <MdKeyboardDoubleArrowRight size='22px'/>
+                            </FlexBetween>
                         </div>
                     </a>
                 </div>
