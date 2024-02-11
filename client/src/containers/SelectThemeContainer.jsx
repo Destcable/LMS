@@ -5,13 +5,9 @@ import Loading from "../ui/Loading/Loading";
 const SelectThemeContainer = ({onThemeSelected}) => { 
     const {data, loading} = useQueryTopics();
     
-    if (loading) { 
-        return <Loading />
-    }
+    if (loading) return <Loading />
     
-    if (data) {
-        return <SelectTheme themes={data} onClick={onThemeSelected} />
-    }
+    if (data) return <SelectTheme themes={data} onClick={onThemeSelected} />
 
 };
 
